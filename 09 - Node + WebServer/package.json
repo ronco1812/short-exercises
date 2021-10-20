@@ -1,0 +1,15 @@
+{
+  "name": "node-webserver",
+  "version": "1.0.0",
+  "description": "- Theory - v8 engine, general explanation.\r - How node works\r - Use cases and companies using node.\r - Node install\r - node module system:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./back/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
