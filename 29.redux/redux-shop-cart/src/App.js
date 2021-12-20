@@ -1,54 +1,25 @@
 import React from 'react';
+import Cart from './components/Cart';
+import Header from './components/Header';
+import ShopList from './components/ShopList';
 import { Counter } from './features/counter/Counter';
+
+const products = [
+  { name: "banana", price: 5, amount: 10 },
+  { name: "apple", price: 3, amount: 12 },
+];
+const cart =[
+  { name: "banana", price: 5, amount: 0 },
+  { name: "apple", price: 3, amount: 0 },
+];
 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <Header />
+    <ShopList products={products} />
+    <Cart cart={cart} />
     </div>
   );
 }
