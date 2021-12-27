@@ -1,0 +1,5 @@
+ cd usr/src/app
+mkdir usr/src/app
+cd usr/src/app
+touch index.js
+exit
