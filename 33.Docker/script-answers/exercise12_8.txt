@@ -1,0 +1,7 @@
+docker-compose -f docker-compose.dev.yml down --volumes
+docker-compose -f docker-compose.dev.yml up
+docker exec -it todo-backend_mongo_1 bash
+mongo
+exit
+mongo -u root -p example
+db.todos.find({})
