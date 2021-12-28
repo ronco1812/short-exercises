@@ -5,6 +5,7 @@ const redis = require("../redis");
 
 router.get("/statistics", async (_req, res) => {
   const added_todos = await redis.getAsync("counter");
+  added_todos = added_todos || 0
   res.json({ added_todos });
 });
 
@@ -22,7 +23,8 @@ router.post("/", async (req, res) => {
   });
 
   const counter = await redis.getAsync("counter");
-  await redis.setAsync("counter", counter + 1);
+  counter = counter||0
+  await redis.setAsync("counter", ++counter);
 
   res.send(todo);
 });
