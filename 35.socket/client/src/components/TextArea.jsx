@@ -1,32 +1,33 @@
-import { useState } from "react";
-import TextField from "@material-ui/core/TextField";
+import React, { useState } from "react";
+import { InputGroup, FormControl, Button } from "react-bootstrap";
 
-export default function TextArea({submitHandler}){
-    const [message, setMessage] = useState("")
+export default function TextArea({ submitHandler }) {
+  const [message, setMessage] = useState("");
 
-    const onTextChange = ({ target: { value } }) => {
-        setMessage(value);
-      };
+  const onMessageSubmit = (e) => {
+    submitHandler(e, message);
+    setMessage("");
+  };
 
-    const onMessageSubmit = (e) =>{
-        submitHandler(e,message)
-        setMessage("")
-    }
+  const onTextChange = ({ target: { value } }) => {
+    setMessage(value);
+  };
 
-    return(
-        <form onSubmit={onMessageSubmit}>
-        <h1>Messenger</h1>
-        <div>
-          <TextField
-            name="message"
-            onChange={onTextChange}
-            value={message}
-            id="outlined-multiline-static"
-            variant="outlined"
-            label="Message"
-          />
-        </div>
-        <button>Send Message</button>
-      </form>
-    )
+  return (
+    <form onSubmit={onMessageSubmit} style={{ marginRight: "50vw" }}>
+      <h1>Messenger</h1>
+      <InputGroup className="mb-3">
+        <FormControl
+          placeholder="Message"
+          aria-label="Message"
+          aria-describedby="basic-addon2"
+          value={message}
+          onChange={onTextChange}
+        />
+        <Button variant="outline-primary" type="submit" id="button-addon2">
+          Send Message
+        </Button>
+      </InputGroup>
+    </form>
+  );
 }
